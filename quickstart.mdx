@@ -1,80 +1,171 @@
 ---
-title: "Quickstart"
-description: "Start building awesome documentation in minutes"
+title: "Início Rápido"
+description: "Aprenda a usar o SICAD em poucos passos"
 ---
 
-## Get started in three steps
+## 🚀 Comece a usar o SICAD
 
-Get your documentation site running locally and make your first customization.
+Este guia rápido vai te ajudar a navegar e utilizar as principais funcionalidades do sistema.
 
-### Step 1: Set up your local environment
+### Passo 1: Acesse o Sistema
 
 <AccordionGroup>
-  <Accordion icon="copy" title="Clone your docs locally">
-    During the onboarding process, you created a GitHub repository with your docs content if you didn't already have one. You can find a link to this repository in your [dashboard](https://dashboard.mintlify.com).
+  <Accordion icon="globe" title="Acesso via Navegador">
+    O SICAD é uma aplicação web que funciona em qualquer navegador moderno:
     
-    To clone the repository locally so that you can make and preview changes to your docs, follow the [Cloning a repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) guide in the GitHub docs.
+    - Abra seu navegador (Chrome, Firefox, Edge, Safari)
+    - Acesse o endereço do SICAD fornecido pela Defensoria
+    - A página inicial será carregada automaticamente
+    
+    <Tip>Recomendamos usar navegadores atualizados para melhor desempenho.</Tip>
   </Accordion>
-  <Accordion icon="rectangle-terminal" title="Start the preview server">
-    1. Install the Mintlify CLI: `npm i -g mint`
-    2. Navigate to your docs directory and run: `mint dev`
-    3. Open `http://localhost:3000` to see your docs live!
+  <Accordion icon="house" title="Navegue pela Página Inicial">
+    Na página inicial você encontrará:
     
-    <Tip>Your preview updates automatically as you edit files.</Tip>
+    - **Visão Geral**: Descrição do sistema e seus objetivos
+    - **Serviços Disponíveis**: Cards com os 3 serviços ativos
+    - **Acesso Rápido**: Links diretos para as calculadoras mais usadas
+    
+    <Info>Os cards são clicáveis e levam diretamente para cada serviço.</Info>
   </Accordion>
 </AccordionGroup>
 
-### Step 2: Deploy your changes
+### Passo 2: Escolha um Serviço
 
 <AccordionGroup>
-  <Accordion icon="github" title="Install our GitHub app">
-    Install the Mintlify GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app).
+  <Accordion icon="scale-balanced" title="Pensão Alimentícia">
+    **Quando usar**: Para calcular valores de pensão alimentícia com correção monetária.
     
-    Our GitHub app automatically deploys your changes to your docs site, so you don't need to manage deployments yourself.
-</Accordion>
-<Accordion icon="palette" title="Update your site name and colors">
-    For a first change, let's update the name and colors of your docs site.
-
-    1. Open `docs.json` in your editor.
-    2. Change the `"name"` field to your project name.
-    3. Update the `"colors"` to match your brand.
-    4. Save and see your changes instantly at `http://localhost:3000`.
-
-    <Tip>Try changing the primary color to see an immediate difference!</Tip>
+    **Como acessar**:
+    - Clique no card "Pensão Alimentícia" na página inicial
+    - Ou acesse diretamente via URL: `/pensao`
+    
+    **Principais recursos**:
+    - Cálculo de pensão regular
+    - Procedimento Coercitivo (Art. 528, CPC)
+    - Penhora - Cumprimento de Sentença (Art. 523, CPC)
+    - Inclusão de 13º salário
+    - Correção por INPC, IPCA ou IGP-M
+  </Accordion>
+  <Accordion icon="chart-line" title="Análise de Juros Abusivos">
+    **Quando usar**: Para verificar se os juros de um contrato estão acima da média do mercado.
+    
+    **Como acessar**:
+    - Clique no card "Juros Abusivos"
+    - Ou navegue via menu de serviços
+    
+    **Principais recursos**:
+    - Comparação com taxas do Banco Central
+    - Identificação de juros abusivos
+    - Análise por modalidade de crédito
+    - Relatório com fundamentação
+  </Accordion>
+  <Accordion icon="percent" title="Calculadora de Porcentagens">
+    **Quando usar**: Para cálculos rápidos de porcentagens, aumentos e descontos.
+    
+    **Como acessar**:
+    - Clique no card "Porcentagens"
+    - Ideal para cálculos auxiliares
+    
+    **Principais recursos**:
+    - Calcular X% de um valor
+    - Aumentos e descontos percentuais
+    - Proporções e regra de três
   </Accordion>
 </AccordionGroup>
 
-### Step 3: Go live
+### Passo 3: Realize seu Cálculo
 
-<Accordion icon="rocket" title="Publish your docs">
-  1. Commit and push your changes.
-  2. Your docs will update and be live in moments!
-</Accordion>
+<Steps>
+  <Step title="Preencha os Dados">
+    Insira as informações solicitadas:
+    - **Valor principal**: O valor base do cálculo
+    - **Período**: Data inicial e final (quando aplicável)
+    - **Índice**: Escolha o índice de correção (INPC, IPCA, IGP-M)
+    - **Opções adicionais**: 13º salário, tipo de procedimento, etc.
+  </Step>
+  <Step title="Configure as Opções">
+    Ajuste os parâmetros conforme o caso:
+    - Selecione o tipo de procedimento (se aplicável)
+    - Defina taxas de juros
+    - Escolha se inclui ou não 13º salário
+    - Configure outras opções específicas do serviço
+  </Step>
+  <Step title="Visualize o Resultado">
+    O sistema calculará automaticamente e mostrará:
+    - **Valor corrigido**: Resultado final do cálculo
+    - **Detalhamento**: Memória de cálculo detalhada
+    - **Índices aplicados**: Valores mensais utilizados
+    - **Opção de impressão**: Para salvar ou imprimir o resultado
+  </Step>
+</Steps>
 
-## Next steps
+## 📊 Exemplo Prático: Cálculo de Pensão
 
-Now that you have your docs running, explore these key features:
+Vamos calcular uma pensão alimentícia:
+
+<Steps>
+  <Step title="Acesse o Serviço">
+    - Clique em "Pensão Alimentícia" na página inicial
+    - Ou digite `/pensao` na barra de endereços
+  </Step>
+  <Step title="Preencha os Dados">
+    - **Valor da pensão**: R$ 1.000,00
+    - **Data inicial**: 01/01/2023
+    - **Data final**: 31/12/2023
+    - **Índice**: INPC (padrão para pensão)
+    - **Incluir 13º**: Sim
+    - **Tipo**: Procedimento Regular
+  </Step>
+  <Step title="Calcule e Visualize">
+    - O sistema buscará automaticamente os índices do BACEN
+    - Aplicará a correção mês a mês
+    - Calculará o 13º salário proporcional
+    - Mostrará o valor total devido
+  </Step>
+</Steps>
+
+## 🎯 Próximos Passos
+
+Agora que você conhece o básico, explore mais:
 
 <CardGroup cols={2}>
-
-<Card title="Write Content" icon="pen-to-square" href="/essentials/markdown">
-  Learn MDX syntax and start writing your documentation.
-</Card>
-
-<Card title="Customize style" icon="palette" href="/essentials/settings">
-  Make your docs match your brand perfectly.
-</Card>
-
-<Card title="Add code examples" icon="square-code" href="/essentials/code">
-  Include syntax-highlighted code blocks.
-</Card>
-
-<Card title="API documentation" icon="code" href="/api-reference/introduction">
-  Auto-generate API docs from OpenAPI specs.
-</Card>
-
+  <Card
+    title="Conheça os Serviços"
+    icon="list"
+    href="/servicos/pensao"
+  >
+    Documentação detalhada de cada serviço
+  </Card>
+  <Card
+    title="Índices Econômicos"
+    icon="chart-mixed"
+    href="/guias/indices-economicos"
+  >
+    Entenda os índices disponíveis
+  </Card>
+  <Card
+    title="Casos de Uso"
+    icon="book-open"
+    href="/guias/casos-de-uso"
+  >
+    Exemplos práticos de utilização
+  </Card>
+  <Card
+    title="Navegação"
+    icon="compass"
+    href="/guias/navegacao"
+  >
+    Aprenda a navegar pelo sistema
+  </Card>
 </CardGroup>
 
-<Note>
-  **Need help?** See our [full documentation](https://mintlify.com/docs) or join our [community](https://mintlify.com/community).
-</Note>
+## ❓ Precisa de Ajuda?
+
+<Tip>
+  **Dica**: Use o botão "Voltar" no navegador ou dentro do serviço para retornar à lista de serviços.
+</Tip>
+
+<Warning>
+  **Atenção**: Sempre verifique se as datas estão corretas antes de calcular. Datas incorretas podem gerar resultados imprecisos.
+</Warning>

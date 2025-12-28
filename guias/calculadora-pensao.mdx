@@ -1,0 +1,640 @@
+---
+title: "Calculadora de Pensão Alimentícia"
+description: "Guia completo para calcular pensão alimentícia com correção monetária"
+icon: "calculator"
+---
+
+## Visão Geral
+
+A **Calculadora de Pensão Alimentícia** é o serviço principal do SICAD, desenvolvida especificamente para a Defensoria Pública do RS automatizar cálculos complexos de pensão alimentícia com total conformidade legal.
+
+<img
+  src="/images/03-pensao-formulario.png"
+  alt="Formulário da Calculadora de Pensão"
+  caption="Interface completa da Calculadora de Pensão Alimentícia"
+/>
+
+## 🎯 O que esta calculadora faz
+
+<CardGroup cols={2}>
+  <Card title="Correção Monetária" icon="chart-line">
+    Aplica índices oficiais (IGP-M, IPCA, INPC, IPCA-E) conforme jurisprudência do TJRS
+  </Card>
+  <Card title="Juros Legais" icon="percent">
+    Calcula juros automaticamente (Lei 14.905/2024)
+  </Card>
+  <Card title="Relatórios PDF" icon="file-pdf">
+    Gera demonstrativos prontos para processos
+  </Card>
+  <Card title="Recálculos" icon="rotate">
+    Permite ajustes e compartilhamento via link
+  </Card>
+</CardGroup>
+
+## 📝 Passo a Passo Detalhado
+
+### Passo 1: Dados do Processo (Opcional)
+
+Esta seção é opcional, mas recomendada para organização:
+
+<ParamField path="Número do Processo" type="string">
+  CNJ no formato: NNNNNNN-DD.AAAA.J.TR.OOOO
+  
+  Exemplo: 5001234-12.2024.8.21.0001
+</ParamField>
+
+<ParamField path="Cumprimento" type="select">
+  Selecione:
+  - **-** (padrão): Ação de alimentos ou outro
+  - **Art. 523**: Cumprimento de sentença
+</ParamField>
+
+<ParamField path="Referência de Tarefa/Atendimento" type="string">
+  Código interno para rastreamento (ex: AT-2024-0001)
+</ParamField>
+
+<Tip>
+  Use sempre a referência de tarefa para facilitar a localização futura do cálculo.
+</Tip>
+
+---
+
+### Passo 2: Sessão de Cálculo (Obrigatório)
+
+Esta é a seção mais importante do formulário.
+
+#### Índice de Correção Monetária
+
+<ParamField path="Índice de Correção" type="select" required>
+  Escolha o índice de correção:
+  
+  **Recomendado**:
+  - **CMB-189-433**: IGP-M/Foro + IPCA (TJRS) ⭐
+  
+  **Outras opções**:
+  - INPC (IBGE)
+  - IPCA-E (IBGE)
+  - IGP-M (FGV)
+  - Combinações customizadas
+</ParamField>
+
+<Info>
+  O índice **CMB-189-433** é o padrão do TJRS e deve ser usado na maioria dos casos.
+</Info>
+
+#### Período de Cálculo
+
+<ParamField path="Data Inicial" type="date" required>
+  Primeira competência a ser calculada
+  
+  Formato: DD/MM/AAAA
+  
+  Exemplo: 01/01/2024
+</ParamField>
+
+<ParamField path="Data Final" type="date" required>
+  Última competência a calcular
+  
+  - **Auto**: Sistema calcula até dezembro do ano anterior
+  - **Manual**: Você define a data específica
+</ParamField>
+
+<ParamField path="Atualizar até" type="date" required>
+  Data de cálculo (referência para correção)
+  
+  - **Auto**: Data atual (recomendado)
+  - **Manual**: Data específica do documento
+</ParamField>
+
+<Warning>
+  Certifique-se de que a **Data Inicial** é anterior à **Data Final**. O sistema validará automaticamente.
+</Warning>
+
+---
+
+### Passo 3: Dados de Rendimento (Obrigatório)
+
+Defina a base de cálculo e o percentual da pensão.
+
+#### Base de Cálculo
+
+<ParamField path="Base de Cálculo" type="select" required>
+  Escolha uma das opções:
+  
+  - **Salário Mínimo**: Valor vigente (R$ 1.518,00 em 2025)
+  - **Salário Customizado**: Informe um valor específico
+  - **Benefício INSS**: Para cálculos sobre benefícios
+  - **Renda Líquida**: Salário menos descontos
+</ParamField>
+
+<Tip>
+  O sistema atualiza automaticamente o valor do salário mínimo conforme legislação vigente.
+</Tip>
+
+#### Percentual da Pensão
+
+<ParamField path="Percentual" type="number" required>
+  Percentual da pensão sobre a base (1% a 100%)
+  
+  **Sugestões rápidas**:
+  - 20% - Um filho
+  - 30% - Dois ou mais filhos
+  - 40% - Três ou mais filhos
+  - 50% - Casos específicos
+</ParamField>
+
+O sistema mostra em tempo real o **valor atual da pensão**:
+
+<CodeGroup>
+```plaintext Exemplo
+Base: R$ 1.518,00 (Salário Mínimo)
+Percentual: 20%
+────────────────────────────
+Valor atual: R$ 303,60
+```
+</CodeGroup>
+
+<Check>
+  Use o botão **"Descobrir %"** para calcular o percentual a partir de um valor fixo desejado.
+</Check>
+
+---
+
+### Passo 4: Tipo de Cálculo (Obrigatório)
+
+Escolha o procedimento legal aplicável ao seu caso.
+
+<Tabs>
+  <Tab title="Prisão (Art. 528, CPC)">
+    ## Procedimento Coercitivo
+    
+    <Warning>
+      Aplicável apenas para as **últimas 3 prestações vencidas**
+    </Warning>
+    
+    ### Características
+    - ⚖️ **Base Legal**: Art. 528 do CPC
+    - 📅 **Período**: Últimas 3 parcelas
+    - 🔒 **Medida**: Prisão civil (até 3 meses)
+    - 💰 **Juros**: Taxa Legal aplicada
+    
+    ### Quando usar
+    - Cobrar pensão das últimas 3 competências
+    - Situação de urgência
+    - Inadimplência recente
+    - Necessidade de medida coercitiva
+    
+    ### Importante
+    A prisão civil tem caráter coercitivo e não substitui o pagamento da dívida.
+  </Tab>
+  
+  <Tab title="Penhora (Art. 523, CPC)">
+    ## Cumprimento de Sentença
+    
+    <Info>
+      Aplicável para **prestações antigas** (anteriores às últimas 3)
+    </Info>
+    
+    ### Características
+    - ⚖️ **Base Legal**: Art. 523 do CPC
+    - 📅 **Período**: Parcelas antigas
+    - 🏠 **Medida**: Penhora de bens
+    - 💰 **Juros**: Taxa Legal (Lei 14.905/2024)
+    - 📊 **Correção**: Obrigatória
+    
+    ### Quando usar
+    - Acúmulo de prestações antigas
+    - Execução patrimonial
+    - Devedor sem urgência de coação pessoal
+    - Valores substanciais acumulados
+    
+    ### Importante
+    Aplicação obrigatória de juros moratórios e correção monetária sobre todos os valores.
+  </Tab>
+</Tabs>
+
+---
+
+### Passo 5: Configurações Avançadas
+
+Ajuste configurações adicionais conforme necessário.
+
+#### Juros Moratórios
+
+<AccordionGroup>
+  <Accordion title="Juros Legais (Recomendado)" icon="check" defaultOpen>
+    **Lei 14.905/2024** - Aplicação automática:
+    
+    | Período | Taxa |
+    |---------|------|
+    | Até 10/01/2003 | 0,5% ao mês |
+    | 11/01/2003 a 29/08/2024 | 1% ao mês |
+    | A partir de 30/08/2024 | Taxa Legal (SELIC) |
+    
+    <Check>
+      Esta é a configuração padrão e deve ser mantida na maioria dos casos.
+    </Check>
+  </Accordion>
+  
+  <Accordion title="Valor Personalizado de Juros" icon="pen">
+    Permite definir taxa customizada de juros moratórios.
+    
+    <Warning>
+      Esta opção fica bloqueada quando "Juros Legais" está ativado. Desative os juros legais primeiro.
+    </Warning>
+    
+    Use apenas se houver determinação judicial específica.
+  </Accordion>
+</AccordionGroup>
+
+#### Regras de Pagamento
+
+<AccordionGroup>
+  <Accordion title="13º Salário" icon="gift">
+    **Quando ativar**: Período de cálculo inclui dezembro
+    
+    Adiciona uma parcela extra referente ao 13º salário proporcional.
+    
+    <Info>
+      O sistema detecta automaticamente se o período inclui dezembro e libera esta opção.
+    </Info>
+  </Accordion>
+  
+  <Accordion title="Vencimento Subsequente" icon="calendar">
+    **Quando ativar**: Pensão vence no mês seguinte à competência
+    
+    Exemplo:
+    - Competência: Janeiro/2024
+    - Vencimento: 01/02/2024
+    
+    <Tip>
+      Esta configuração afeta o cálculo de juros de mora.
+    </Tip>
+  </Accordion>
+</AccordionGroup>
+
+#### Opções de Pagamento
+
+<AccordionGroup>
+  <Accordion title="QR Code PIX" icon="qrcode">
+    Inclui QR Code PIX no demonstrativo para facilitar pagamentos.
+    
+    **Dados necessários** (informados posteriormente):
+    - Chave PIX do beneficiário
+    - Nome do titular
+    - Instituição bancária
+    
+    <Note>
+      Em conformidade com a LGPD, os dados PIX **não são armazenados** no sistema.
+    </Note>
+  </Accordion>
+</AccordionGroup>
+
+---
+
+### Passo 6: Calcular
+
+Após preencher todos os campos obrigatórios, o botão **"Calcular Pensão Alimentícia"** ficará habilitado.
+
+<Steps>
+  <Step title="Revisar Dados">
+    Confira se todos os campos estão corretos
+  </Step>
+  <Step title="Clicar em Calcular">
+    O sistema processará o cálculo instantaneamente
+  </Step>
+  <Step title="Aguardar Resultado">
+    Em segundos, você verá a tabela de resultado completa
+  </Step>
+</Steps>
+
+<img
+  src="/images/04-pensao-preenchido.png"
+  alt="Formulário preenchido pronto para calcular"
+/>
+
+---
+
+## 📊 Entendendo o Resultado
+
+Após calcular, você verá uma tela com informações detalhadas:
+
+<img
+  src="/images/05-pensao-resultado.png"
+  alt="Resultado do cálculo de pensão alimentícia"
+/>
+
+### Cabeçalho do Resultado
+
+<ResponseField name="Período" type="string">
+  Competências calculadas (ex: 01/2024 a 12/2025)
+</ResponseField>
+
+<ResponseField name="Atualizar até" type="date">
+  Data de referência do cálculo
+</ResponseField>
+
+<ResponseField name="Base de Cálculo" type="string">
+  Salário Mínimo ou valor customizado + percentual
+</ResponseField>
+
+<ResponseField name="Correção Monetária" type="string">
+  Índice aplicado (ex: CMB-189-433)
+</ResponseField>
+
+<ResponseField name="Juros Moratórios" type="string">
+  Tipo de juros aplicados (Lei 14.905/2024)
+</ResponseField>
+
+### Tabela de Parcelas
+
+Cada linha representa uma competência (mês) e contém:
+
+| Coluna | Descrição | Editável |
+|--------|-----------|----------|
+| **☐** | Checkbox para seleção em lote | ✓ |
+| **Mês** | Competência (ex: jan/2024) | ✗ |
+| **Venc.** | Data de vencimento | ✗ |
+| **Base** | Valor da base de cálculo | ✗ |
+| **%** | Percentual aplicado | ✗ |
+| **Pensão** | Valor original da pensão | ✗ |
+| **Pago** | Valor já pago/quitado | **✓** |
+| **Devido** | Saldo devedor (Pensão - Pago) | ✗ |
+| **Índice** | Fator de correção monetária | ✗ |
+| **Corrigido** | Valor devido corrigido | ✗ |
+| **Vl. Juros** | Juros de mora calculados | ✗ |
+| **Total** | Valor total a pagar | ✗ |
+
+### Código de Cores
+
+<CardGroup cols={3}>
+  <Card title="✅ Verde" icon="check">
+    Parcela **quitada integralmente**
+  </Card>
+  <Card title="🟨 Laranja" icon="triangle-exclamation">
+    Parcela com **pagamento parcial**
+  </Card>
+  <Card title="⬜ Branco" icon="circle">
+    Parcela **não paga**
+  </Card>
+</CardGroup>
+
+### Totalizador
+
+No final da tabela, você encontra o resumo:
+
+<CodeGroup>
+```plaintext Exemplo de Totalizador
+TOTAL:
+├─ Pensão Devida:    R$ 7.032,00
+├─ Pago:             R$ 0,00
+├─ Devido:           R$ 7.032,00
+├─ Corrigido:        R$ 7.307,11
+├─ Juros:            R$ 625,61
+└─ TOTAL A RECEBER:  R$ 7.932,72
+```
+</CodeGroup>
+
+---
+
+## 💰 Registrando Pagamentos
+
+Você pode informar valores já pagos diretamente na tabela:
+
+<Steps>
+  <Step title="Localizar a Parcela">
+    Encontre o mês que foi pago
+  </Step>
+  <Step title="Clicar no campo 'Pago'">
+    Clique no campo de entrada na coluna "Pago"
+  </Step>
+  <Step title="Informar Valor">
+    Digite o valor pago (ex: 300.00)
+  </Step>
+  <Step title="Confirmar">
+    Pressione Enter ou clique fora do campo
+  </Step>
+</Steps>
+
+<Tip>
+  **Atalho Rápido**: Clique no ícone 🔧 ao lado do campo "Pago" para opções rápidas como "Quitar Integral" ou "Quitar Parcial".
+</Tip>
+
+O sistema recalculará automaticamente:
+- Saldo devido de cada parcela
+- Total de valores pagos
+- Total de valores devidos
+- Totais gerais
+
+---
+
+## ⚖️ Consectários Legais
+
+Antes de imprimir o relatório, você **deve** selecionar os acréscimos aplicáveis:
+
+<Tabs>
+  <Tab title="Sem Acréscimos">
+    ### Apenas Correção e Juros
+    
+    Sem multa e sem honorários advocatícios.
+    
+    **Quando usar**:
+    - Acordo amigável
+    - Pagamento voluntário
+    - Orientação judicial específica
+  </Tab>
+  
+  <Tab title="Multa de 10%">
+    ### Art. 523, § 1º do CPC
+    
+    Multa de **10%** sobre o valor total.
+    
+    **Quando usar**:
+    - Não houve pagamento voluntário em 15 dias
+    - Após intimação para pagamento
+    - Execução forçada iniciada
+    
+    <Warning>
+      A multa é calculada sobre o valor total atualizado (principal + juros + correção).
+    </Warning>
+  </Tab>
+  
+  <Tab title="Honorários de 10%">
+    ### Art. 523, § 1º do CPC
+    
+    Honorários advocatícios de **10%**.
+    
+    **Quando usar**:
+    - Execução judicial necessária
+    - Pagamento não voluntário
+    - Resistência do devedor
+    
+    <Info>
+      Honorários são devidos ao advogado do credor pela necessidade de execução forçada.
+    </Info>
+  </Tab>
+</Tabs>
+
+<Check>
+  Você pode selecionar **múltiplas opções** (ex: Multa + Honorários).
+</Check>
+
+---
+
+## 📄 Gerando o Relatório
+
+Após selecionar os consectários legais, o botão **"Imprimir Relatório"** será habilitado.
+
+<Steps>
+  <Step title="Selecionar Consectários">
+    Marque as opções aplicáveis
+  </Step>
+  <Step title="Clicar em Imprimir">
+    Ou pressione **Ctrl + P**
+  </Step>
+  <Step title="Configurar Impressão">
+    Escolha impressora ou "Salvar como PDF"
+  </Step>
+  <Step title="Salvar/Imprimir">
+    Confirme a operação
+  </Step>
+</Steps>
+
+<img
+  className="block"
+  src="/images/keyboard-shortcut.png"
+  alt="Atalho de teclado Ctrl+P"
+/>
+
+<Info>
+  **Atalho de Teclado**: Pressione **Ctrl + P** para acessar rapidamente a impressão.
+</Info>
+
+### Conteúdo do Relatório PDF
+
+O demonstrativo inclui:
+
+<Check>**Cabeçalho**: Dados do processo e identificação</Check>
+<Check>**Parâmetros**: Configurações usadas no cálculo</Check>
+<Check>**Tabela Detalhada**: Todas as parcelas discriminadas</Check>
+<Check>**Totalizador**: Resumo financeiro</Check>
+<Check>**Consectários**: Multa e/ou honorários aplicados</Check>
+<Check>**Base Legal**: Fundamentação jurídica</Check>
+<Check>**Assinatura**: Espaço para assinatura do responsável</Check>
+<Check>**QR Code PIX**: Se configurado</Check>
+
+---
+
+## 🔗 Compartilhando o Cálculo
+
+Use o botão **"Compartilhar"** para gerar um link permanente:
+
+<Steps>
+  <Step title="Clicar em Compartilhar">
+    Botão no canto superior direito
+  </Step>
+  <Step title="Copiar Link">
+    Sistema gera URL única
+  </Step>
+  <Step title="Enviar Link">
+    Compartilhe por e-mail, WhatsApp, etc.
+  </Step>
+</Steps>
+
+**Vantagens**:
+- ✅ Qualquer pessoa com o link pode visualizar
+- ✅ Recálculo instantâneo ao alterar parâmetros
+- ✅ Histórico preservado
+- ✅ Não requer login
+
+<Warning>
+  Links compartilhados são **públicos**. Não compartilhe se houver informações sensíveis.
+</Warning>
+
+---
+
+## 🔄 Editando o Cálculo
+
+Para ajustar parâmetros após calcular:
+
+1. Clique em **"Editar Cálculo"**
+2. Modifique os campos desejados
+3. Clique novamente em **"Calcular"**
+
+O sistema manterá os valores já informados como pagos.
+
+---
+
+## 💡 Dicas e Melhores Práticas
+
+<AccordionGroup>
+  <Accordion title="Use sempre referências" icon="bookmark">
+    Preencha o campo "Referência de Tarefa/Atendimento" para facilitar buscas futuras.
+  </Accordion>
+  
+  <Accordion title="Salve os links" icon="link">
+    Guarde os links compartilháveis em local seguro para recálculos futuros.
+  </Accordion>
+  
+  <Accordion title="Verifique datas" icon="calendar">
+    Confirme sempre as datas inicial e final antes de calcular.
+  </Accordion>
+  
+  <Accordion title="Documente pagamentos" icon="money-bill">
+    Registre todos os pagamentos na tabela para manter histórico atualizado.
+  </Accordion>
+  
+  <Accordion title="Revise antes de imprimir" icon="eye">
+    Confira todos os valores e acréscimos antes de gerar o PDF final.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## ❓ Perguntas Frequentes
+
+<AccordionGroup>
+  <Accordion title="Posso calcular períodos muito longos?">
+    Sim! O sistema suporta períodos de vários anos. No entanto, para períodos muito extensos (10+ anos), considere dividir em múltiplos cálculos.
+  </Accordion>
+  
+  <Accordion title="Como incluir o 13º salário?">
+    Se o período incluir dezembro, ative a opção "13º Salário" nas configurações. O sistema adicionará automaticamente uma parcela extra.
+  </Accordion>
+  
+  <Accordion title="Posso usar valor diferente do salário mínimo?">
+    Sim! Selecione "Salário Customizado" na Base de Cálculo e informe o valor desejado.
+  </Accordion>
+  
+  <Accordion title="Os juros são obrigatórios?">
+    Sim, em processos de Penhora (Art. 523). Para Prisão (Art. 528), os juros são aplicados mas têm menos impacto no curto prazo.
+  </Accordion>
+  
+  <Accordion title="Posso alterar o índice de correção?">
+    Sim, mas o índice padrão (CMB-189-433) é o recomendado pelo TJRS. Altere apenas se houver determinação judicial específica.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## 🆘 Precisa de Ajuda?
+
+<CardGroup cols={2}>
+  <Card title="Suporte Técnico" icon="headset" href="mailto:calculos@defensoria.rs.def.br">
+    calculos@defensoria.rs.def.br
+    
+    Assunto: SICAD - Calculadora de Pensão
+  </Card>
+  
+  <Card title="Manual Completo" icon="book" href="/manual-usuario">
+    Consulte o manual completo do SICAD
+  </Card>
+</CardGroup>
+
+---
+
+<Card title="Desenvolvido por" icon="building">
+  **CATE-RS - Setor de Cálculos**
+  
+  Defensoria Pública do Estado do Rio Grande do Sul
+</Card>

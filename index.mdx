@@ -1,97 +1,103 @@
 ---
-title: "Introduction"
-description: "Welcome to the new home for your documentation"
+title: "Introdução"
+description: "Manual de uso do SICAD - Sistema Integrado de Cálculos da Defensoria Pública"
 ---
 
-## Setting up
+## Visão Geral
 
-Get your documentation site up and running in minutes.
+O **SICAD** é uma interface web moderna desenvolvida em React que fornece ferramentas de cálculos jurídicos e financeiros especializadas para a Defensoria Pública. O sistema oferece calculadoras especializadas, consulta a índices econômicos e integração com APIs do Banco Central para cálculos complexos.
 
 <Card
-  title="Start here"
+  title="Comece aqui"
   icon="rocket"
   href="/quickstart"
   horizontal
 >
-  Follow our three step quickstart guide.
+  Siga estes passos simples para utilizar o sistema corretamente.
 </Card>
 
-## Make it yours
+## 🎯 Serviços Disponíveis
 
-Design a docs site that looks great and empowers your users.
+O sistema possui **3 serviços ativos** e prontos para uso:
+
+<Columns cols={3}>
+  <Card
+    title="Pensão Alimentícia"
+    icon="scale-balanced"
+    href="/servicos/pensao"
+  >
+    Calcule pensão alimentícia com correção monetária e procedimentos legais (Art. 528 e 523, CPC).
+  </Card>
+  <Card
+    title="Juros Abusivos"
+    icon="chart-line"
+    href="/servicos/juros-abusivos"
+  >
+    Analise se os juros cobrados em contratos são abusivos com base nas taxas do BACEN.
+  </Card>
+  <Card
+    title="Porcentagens"
+    icon="percent"
+    href="/servicos/porcentagem"
+  >
+    Calcule porcentagens, aumentos, descontos e proporções de forma rápida.
+  </Card>
+</Columns>
+
+## 📚 Guias e Recursos
+
+Explore todos os recursos do SICAD:
 
 <Columns cols={2}>
   <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/development"
+    title="Índices Econômicos"
+    icon="line-chart"
+    href="/guias/indices-economicos"
   >
-    Edit your docs locally and preview them in real time.
+    Conheça os índices disponíveis: INPC, IPCA, IGP-M e como utilizá-los.
   </Card>
   <Card
-    title="Customize your site"
-    icon="palette"
-    href="/essentials/settings"
-  >
-    Customize the design and colors of your site to match your brand.
-  </Card>
-    <Card
-    title="Set up navigation"
+    title="Navegação e Rotas"
     icon="map"
-    href="/essentials/navigation"
+    href="/guias/navegacao"
   >
-    Organize your docs to help users find what they need and succeed with your product.
+    Entenda a estrutura de URLs e como navegar pelo sistema.
   </Card>
   <Card
-    title="API documentation"
-    icon="terminal"
+    title="Casos de Uso"
+    icon="book"
+    href="/guias/casos-de-uso"
+  >
+    Exemplos práticos de utilização dos serviços.
+  </Card>
+  <Card
+    title="API de Referência"
+    icon="code"
     href="/api-reference/introduction"
   >
-    Auto-generate API documentation from OpenAPI specifications.
+    Documentação técnica das APIs utilizadas.
   </Card>
 </Columns>
 
-## Create beautiful pages
+## ⚡ Acesso Rápido
 
-Everything you need to create world-class documentation.
-
-<Columns cols={2}>
+<CardGroup cols={2}>
   <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/essentials/markdown"
+    title="Calcular Pensão"
+    icon="calculator"
+    href="/servicos/pensao"
   >
-    Use MDX to style your docs pages.
+    Acesse diretamente a calculadora de pensão alimentícia
   </Card>
   <Card
-    title="Code samples"
-    icon="code"
-    href="/essentials/code"
+    title="Analisar Juros"
+    icon="magnifying-glass-chart"
+    href="/servicos/juros-abusivos"
   >
-    Add sample code to demonstrate how to use your product.
+    Verifique se os juros do contrato são abusivos
   </Card>
-  <Card
-    title="Images"
-    icon="image"
-    href="/essentials/images"
-  >
-    Display images and other media.
-  </Card>
-  <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/essentials/reusable-snippets"
-  >
-    Write once and reuse across your docs.
-  </Card>
-</Columns>
+</CardGroup>
 
-## Need inspiration?
+## 🏛️ Sobre a Defensoria Pública
 
-<Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
->
-  Browse our showcase of exceptional documentation sites.
-</Card>
+O SICAD é uma ferramenta desenvolvida para auxiliar os profissionais da Defensoria Pública no atendimento à população, fornecendo cálculos precisos e fundamentados em índices oficiais do Banco Central do Brasil.
