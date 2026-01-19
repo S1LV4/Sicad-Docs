@@ -1,43 +1,35 @@
-# Mintlify Starter Kit
+## Como rodar a documentação no seu computador
 
-Use the starter kit to get your docs deployed and ready to customize.
+1. **Instale o Mintlify (uma ferramenta de linha de comando)**
+   Abra o terminal (cmd) e rode este comando:
 
-Click the green **Use this template** button at the top of this repo to copy the Mintlify starter kit. The starter kit contains examples with
+   ```
+   npm i -g mint
+   ```
 
-- Guide pages
-- Navigation
-- Customizations
-- API reference pages
-- Use of popular components
+   Caso não tenha o npm instalado (nodejs): https://nodejs.org/en/download
 
-**[Follow the full quickstart guide](https://starter.mintlify.com/quickstart)**
+2. **Entre na pasta da documentação**
+   Vá até a pasta onde está o arquivo `docs.json`.
 
-## Development
+3. **Inicie a documentação localmente**
+   Rode o comando:
 
-Install the [Mintlify CLI](https://www.npmjs.com/package/mint) to preview your documentation changes locally. To install, use the following command:
+   ```
+   mint dev
+   ```
 
-```
-npm i -g mint
-```
+4. **Abra no navegador**
+   Acesse este endereço no navegador:
 
-Run the following command at the root of your documentation, where your `docs.json` is located:
+   ```
+   http://localhost:3000
+   ```
 
-```
-mint dev
-```
+---
 
-View your local preview at `http://localhost:3000`.
+ **Envie as alterações para o GitHub**
+   Sempre que você fizer um `push` para a branch principal do repositório,
+   a documentação será **publicada automaticamente** em produção.
 
-## Publishing changes
-
-Install our GitHub app from your [dashboard](https://dashboard.mintlify.com/settings/organization/github-app) to propagate changes from your repo to your deployment. Changes are deployed to production automatically after pushing to the default branch.
-
-## Need help?
-
-### Troubleshooting
-
-- If your dev environment isn't running: Run `mint update` to ensure you have the most recent version of the CLI.
-- If a page loads as a 404: Make sure you are running in a folder with a valid `docs.json`.
-
-### Resources
-- [Mintlify documentation](https://mintlify.com/docs)
+---
