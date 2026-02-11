@@ -1,0 +1,22 @@
+services:
+  sicad-docs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sicad-docs
+    ports:
+      - "3000:80"
+    environment:
+      # Variáveis de ambiente para o container
+      - NODE_ENV=production
+    restart: unless-stopped
+    networks:
+      - sicad-network
+      - nginx_network
+
+networks:
+  sicad-network:
+    driver: bridge
+  nginx_network:
+    external: true
+    name: nginx_network

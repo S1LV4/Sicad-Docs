@@ -1,0 +1,278 @@
+---
+title: "Perguntas Frequentes"
+description: "Respostas para as dúvidas mais comuns sobre o SICAD"
+---
+
+## Geral
+
+<AccordionGroup>
+  <Accordion title="O que é o SICAD?" icon="circle-question">
+    O **SICAD** (Sistema Integrado de Cálculos da Defensoria) é uma plataforma web desenvolvida para auxiliar os profissionais da Defensoria Pública em cálculos jurídicos e financeiros. O sistema oferece ferramentas especializadas para cálculo de pensão alimentícia, análise de juros abusivos e operações com porcentagens.
+  </Accordion>
+
+  <Accordion title="Quem pode usar o SICAD?" icon="users">
+    O SICAD é destinado exclusivamente aos profissionais da Defensoria Pública, incluindo:
+    - Defensores públicos
+    - Servidores da Defensoria
+    - Estagiários
+    - Colaboradores e operadores de direito.
+
+    O acesso é livre, sem restrinção, para os profissionais mencionados acima.
+  </Accordion>
+
+  <Accordion title="O SICAD é gratuito?" icon="money-bill">
+    Sim, o SICAD é uma ferramenta desenvolvida e mantida pela Defensoria Pública para uso interno, sendo totalmente gratuita para os profissionais da instituição.
+  </Accordion>
+
+  <Accordion title="Como acesso o SICAD?" icon="globe">
+    O SICAD é uma aplicação web que pode ser acessada através de qualquer navegador moderno. Basta acessar o endereço fornecido pela Defensoria Pública ou clicar no botão "Dashboard" no menu superior desta documentação.
+  </Accordion>
+</AccordionGroup>
+
+## Cálculos e Funcionalidades
+
+<AccordionGroup>
+  <Accordion title="Quais índices de correção monetária estão disponíveis?" icon="chart-line">
+    O SICAD utiliza os principais índices oficiais do Banco Central e IBGE:
+
+    - **INPC** (Índice Nacional de Preços ao Consumidor) - IBGE
+    - **IPCA** (Índice Nacional de Preços ao Consumidor Amplo) - IBGE
+    - **IPCA-15** - IBGE
+    - **IGP-M** (Índice Geral de Preços do Mercado) - FGV
+    - **Selic** - Taxa básica de juros do Bacen
+    - **Taxa Legal** - Selic − IPCA-15 (Lei nº 14.905/2024)
+
+    Os índices são obtidos automaticamente via **API SGS** do Banco Central e atualizados conforme a periodicidade oficial de divulgação de cada um.
+  </Accordion>
+
+  <Accordion title="Como calcular pensão alimentícia no SICAD?" icon="scale-balanced">
+    Para calcular pensão alimentícia:
+
+    1. Acesse o serviço "Pensão Alimentícia"
+    2. Informe o valor da pensão mensal
+    3. Defina o período (data inicial e final)
+    4. Selecione o índice de correção (INPC é o padrão para pensão)
+    5. Escolha o tipo de procedimento (Regular, Art. 528 ou Art. 523 CPC)
+    6. Marque se deseja incluir o 13º salário
+    7. Clique em calcular
+
+    O sistema gerará automaticamente a memória de cálculo detalhada.
+  </Accordion>
+
+  <Accordion title="O que é o Procedimento Coercitivo (Art. 528, CPC)?" icon="gavel">
+    O Procedimento Coercitivo previsto no Artigo 528 do Código de Processo Civil é utilizado para o cumprimento de obrigação de pagar quantia certa. No contexto da pensão alimentícia, permite a execução de valores atrasados com multa de 10% e honorários advocatícios de 10% sobre o valor da condenação.
+  </Accordion>
+
+  <Accordion title="Como identificar juros abusivos em um contrato?" icon="magnifying-glass-chart">
+    Para analisar juros abusivos:
+
+    1. Acesse o serviço "Análise de Juros Abusivos"
+    2. Informe a taxa de juros do contrato
+    3. Selecione a modalidade de crédito (pessoal, consignado, etc.)
+    4. O sistema comparará com as taxas médias de mercado divulgadas pelo BACEN
+    5. Será gerado um relatório indicando se os juros estão acima da média
+  </Accordion>
+
+  <Accordion title="Posso salvar ou imprimir os resultados?" icon="print">
+    Sim! Após realizar um cálculo, o sistema oferece opções para:
+    - Visualizar a memória de cálculo completa
+    - Imprimir o resultado
+    - Salvar em formato PDF
+    - Copiar os valores calculados
+  </Accordion>
+</AccordionGroup>
+
+## Dados e Atualizações
+
+<AccordionGroup>
+  <Accordion title="Os índices estão sempre atualizados?" icon="rotate">
+    O SICAD busca os índices diretamente das APIs do Banco Central do Brasil. No entanto, é importante observar que:
+
+    - Os índices são divulgados mensalmente pelo IBGE/FGV
+    - Pode haver atrasos na divulgação oficial
+    - Recomendamos sempre verificar a data de atualização dos índices
+    - O sistema utiliza os valores mais recentes disponíveis
+  </Accordion>
+
+  <Accordion title="O que fazer se um índice não estiver disponível?" icon="triangle-exclamation">
+    Se um índice específico não estiver disponível:
+
+    1. Verifique se a data solicitada está dentro do período de divulgação
+    2. Tente utilizar outro índice equivalente
+    3. Consulte o site do Banco Central para confirmar a disponibilidade
+    4. Entre em contato com o suporte se o problema persistir
+  </Accordion>
+
+  <Accordion title="Posso usar o sistema offline?" icon="wifi-slash">
+    Não, o SICAD requer conexão com a internet para funcionar, pois:
+    - Os cálculos são processados nos servidores
+    - Os índices são consultados em tempo real
+    - A autenticação é feita online
+  </Accordion>
+</AccordionGroup>
+
+## Problemas Técnicos
+
+<AccordionGroup>
+  <Accordion title="O sistema não carrega, o que fazer?" icon="bug">
+    Se o SICAD não estiver carregando:
+
+    1. Verifique sua conexão com a internet
+    2. Limpe o cache do navegador (Ctrl+Shift+Del)
+    3. Tente acessar em outro navegador
+    4. Verifique se há manutenção programada
+    5. Entre em contato com o suporte técnico
+  </Accordion>
+
+  <Accordion title="Os cálculos estão demorando muito, é normal?" icon="clock">
+    O tempo de processamento varia conforme:
+    - Período solicitado (cálculos de longos períodos levam mais tempo)
+    - Tipo de cálculo (procedimentos complexos como Art. 528/523)
+    - Condições da rede
+
+    Normalmente, os cálculos são instantâneos. Se estiver demorando excessivamente, verifique sua conexão ou tente novamente mais tarde.
+  </Accordion>
+
+  <Accordion title="Recebi uma mensagem de erro, o que significa?" icon="circle-xmark">
+    Mensagens de erro comuns:
+
+    - **"Dados inválidos"**: Verifique se todos os campos obrigatórios estão preenchidos corretamente
+    - **"Período não disponível"**: O período solicitado pode estar fora do range de índices disponíveis
+    - **"Erro na consulta ao BACEN"**: Problema temporário na API do Banco Central, tente novamente
+    - **"Sessão expirada"**: Faça login novamente no sistema
+    - **"Erro desconhecido"**: Entre em contato com o suporte técnico para assistência
+  </Accordion>
+</AccordionGroup>
+
+## Segurança e Privacidade
+
+<AccordionGroup>
+  <Accordion title="Meus dados estão seguros?" icon="shield-halved">
+    Sim, o SICAD adota medidas rigorosas de segurança:
+    - Criptografia de dados em trânsito (HTTPS)
+    - Autenticação segura
+    - Conformidade com a LGPD
+    - Acesso restrito a profissionais autorizados
+  </Accordion>
+
+  <Accordion title="O sistema armazena meus cálculos?" icon="database">
+    Atualmente, o SICAD não armazena histórico de cálculos. Esta funcionalidade está prevista para futuras atualizações, visando facilitar consultas futuras com medidas de segurança adequadas.
+  </Accordion>
+</AccordionGroup>
+
+## Índices e Fontes Oficiais
+
+<AccordionGroup>
+  <Accordion title="O que é a Taxa Legal (Lei nº 14.905/2024)?" icon="scale">
+    A Taxa Legal foi instituída pela Lei nº 14.905/2024 e é calculada como: **Selic − IPCA-15**.
+
+    É aplicada em conformidade com as orientações do **TRF4** (Tribunal Regional Federal da 4ª Região) e serve como referência para juros moratórios em diversos tipos de cálculos judiciais.
+
+    O SICAD aplica esta taxa automaticamente conforme as diretrizes do CMN 5.171/24.
+  </Accordion>
+
+  <Accordion title="De onde vêm os índices utilizados?" icon="building-columns">
+    Os índices são obtidos de fontes oficiais:
+
+    - **API SGS** (Sistema Gerenciador de Séries Temporais) do Banco Central
+    - **IBGE** - Instituto Brasileiro de Geografia e Estatística
+    - **FGV** - Fundação Getúlio Vargas (IGP-M)
+
+    Os dados seguem os parâmetros adotados pelo **Tribunal de Justiça do RS (TJRS)** e **TRF4**.
+  </Accordion>
+
+  <Accordion title="Como funciona a análise de juros abusivos?" icon="magnifying-glass-chart">
+    A análise de juros abusivos compara a taxa do contrato com as taxas médias de mercado divulgadas pelo BACEN:
+
+    - **Taxa Vantajosa**: Abaixo da média do mercado
+    - **Não Abusivo**: Dentro da faixa normal
+    - **Possível Abusividade**: Acima de 20% da média
+    - **Abusividade Flagrante**: Acima de 50% da média
+
+    O sistema utiliza séries oficiais do BACEN por modalidade de crédito (pessoal, consignado, etc.).
+  </Accordion>
+
+  <Accordion title="Quais modalidades de crédito são suportadas?" icon="credit-card">
+    O SICAD suporta diversas modalidades de crédito para análise de juros:
+
+    - Crédito pessoal
+    - Crédito consignado
+    - Financiamento de veículos
+    - Cartão de crédito
+    - Cheque especial
+    - E outras modalidades disponibilizadas pelo BACEN
+
+    As modalidades são atualizadas conforme disponibilidade da API do BACEN.
+  </Accordion>
+</AccordionGroup>
+
+## Serviços Disponíveis
+
+<AccordionGroup>
+  <Accordion title="Quais serviços estão disponíveis no SICAD?" icon="list-check">
+    O SICAD oferece 4 serviços principais:
+
+    1. **Pensão Alimentícia** - Cálculo com correção monetária e juros
+    2. **Análise de Juros Abusivos** - Verificação de taxas de contratos
+    3. **Calculadora de Débitos** - Correção monetária de múltiplas parcelas
+    4. **Porcentagens** - Cálculos rápidos de percentuais
+
+    Todos os serviços utilizam índices oficiais atualizados automaticamente.
+  </Accordion>
+
+  <Accordion title="O que é a Calculadora de Débitos?" icon="calculator">
+    A Calculadora de Débitos permite:
+
+    - Calcular correção monetária de múltiplas parcelas
+    - Aplicar juros sobre débitos e créditos
+    - Processar descontos com índices oficiais
+    - Gerar relatórios completos com memória de cálculo
+
+    Ideal para cálculos revisicionais e execuções de sentença.
+  </Accordion>
+
+  <Accordion title="Como funciona o cálculo de pensão alimentícia?" icon="baby">
+    A calculadora de pensão alimentícia oferece:
+
+    - Cálculo regular com correção monetária
+    - Procedimento Coercitivo (Art. 528, CPC)
+    - Cumprimento de Sentença (Art. 523, CPC)
+    - Inclusão automática do 13º salário
+    - Escolha entre índices INPC, IPCA ou IGP-M
+    - Relatório completo para execução judicial
+  </Accordion>
+</AccordionGroup>
+
+## Suporte
+
+<AccordionGroup>
+  <Accordion title="Como obter ajuda ou suporte?" icon="headset">
+    Você pode obter ajuda de várias formas:
+
+    1. **Documentação**: Consulte os guias disponíveis nesta documentação
+    2. **E-mail**: Envie sua dúvida para calculos@defensoria.rs.gov.br
+    3. **Suporte interno**: Entre em contato com a equipe de TI da Defensoria
+    4. **Treinamentos**: Participe das capacitações oferecidas pela instituição
+  </Accordion>
+
+  <Accordion title="Posso sugerir novas funcionalidades?" icon="lightbulb">
+    Sim! Sugestões de melhorias são bem-vindas. Envie suas ideias para:
+
+    - calculos@defensoria.rs.gov.br
+    - Ou através do canal de comunicação interno da Defensoria
+
+    Todas as sugestões são avaliadas pela equipe de desenvolvimento.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Não encontrou sua dúvida?
+
+<Card title="Entre em Contato" icon="envelope" href="mailto:calculos@defensoria.rs.gov.br">
+  Se sua pergunta não foi respondida aqui, entre em contato com nossa equipe de suporte. Estamos prontos para ajudar!
+</Card>
+
+<Tip>
+  **Dica**: Mantenha esta página nos favoritos do navegador para consulta rápida sempre que tiver dúvidas sobre o sistema.
+</Tip>

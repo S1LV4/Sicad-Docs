@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
+  "theme": "aspen",
   "name": "SICAD",
   "colors": {
     "primary": "#16A34A",
@@ -30,6 +30,13 @@
         "group": "Desenvolvimento",
         "pages": [
           "development"
+        ]
+      },
+      {
+        "group": "Informações",
+        "pages": [
+          "faq",
+          "terms"
         ]
       }
     ]

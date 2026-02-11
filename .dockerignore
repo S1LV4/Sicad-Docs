@@ -1,0 +1,19 @@
+# Git
+.git
+.gitignore
+
+# Documentation files (não necessários no build)
+README.md
+COMO-PUBLICAR.md
+RESUMO-PROJETO.md
+SCREENSHOTS-README.md
+WORKFLOW-DOCUMENTACAO.md
+
+# Build artifacts
+_site
+node_modules
+
+# Misc
+.DS_Store
+*.log
+_old.json

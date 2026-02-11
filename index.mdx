@@ -5,7 +5,7 @@ description: "Manual de uso do SICAD - Sistema Integrado de Cálculos da Defenso
 
 ## Visão Geral
 
-O **SICAD** é uma interface web moderna desenvolvida em React que fornece ferramentas de cálculos jurídicos e financeiros especializadas para a Defensoria Pública. O sistema oferece calculadoras especializadas, consulta a índices econômicos e integração com APIs do Banco Central para cálculos complexos.
+O **SICAD** (Sistema Integrado de Cálculos da Defensoria) é uma solução desenvolvida pelo Setor de Cálculos da DPE-RS, voltada à padronização e à automatização de cálculos judiciais complexos, assegurando segurança jurídica e celeridade aos processos.
 
 <Card
   title="Comece aqui"
@@ -18,86 +18,184 @@ O **SICAD** é uma interface web moderna desenvolvida em React que fornece ferra
 
 ## 🎯 Serviços Disponíveis
 
-O sistema possui **3 serviços ativos** e prontos para uso:
+O sistema possui **4 serviços ativos** e prontos para uso:
 
-<Columns cols={3}>
+<Columns cols={2}>
   <Card
     title="Pensão Alimentícia"
-    icon="scale-balanced"
-    href="/servicos/pensao"
+    icon="baby"
+    href="/guias/calculadora-pensao"
   >
-    Calcule pensão alimentícia com correção monetária e procedimentos legais (Art. 528 e 523, CPC).
+    Ferramenta para calcular o valor da pensão alimentícia, com atualização por correção monetária e juros previstos em lei.
   </Card>
   <Card
-    title="Juros Abusivos"
-    icon="chart-line"
-    href="/servicos/juros-abusivos"
+    title="Análise de Juros Abusivos"
+    icon="trending-up"
+    href="/guias/juros-abusivos"
   >
-    Analise se os juros cobrados em contratos são abusivos com base nas taxas do BACEN.
+    Identifique se os juros cobrados em contratos de crédito são abusivos, com base nas taxas do Banco Central.
+  </Card>
+  <Card
+    title="Calculadora de Débitos"
+    icon="calculator"
+    href="/servicos/debitos"
+  >
+    Calcule correção monetária e juros de múltiplas parcelas com índices oficiais do BACEN.
   </Card>
   <Card
     title="Porcentagens"
     icon="percent"
-    href="/servicos/porcentagem"
+    href="/guias/porcentagens"
   >
-    Calcule porcentagens, aumentos, descontos e proporções de forma rápida.
+    Calcule porcentagens, aumentos, descontos e proporções de forma rápida e simples.
   </Card>
 </Columns>
+
+## ✨ Por que utilizar o SICAD?
+
+<CardGroup cols={3}>  <Card title="Padronização" icon="clipboard-check">
+    Metodologia única para todas as unidades da Defensoria.
+  </Card>  
+  <Card title="Taxa Legal (Lei Nº 14.905/24)" icon="scale">
+    Juros moratórios pela Taxa Legal (Selic − IPCA-15), conforme CMN 5.171/24.
+  </Card>  
+  <Card title="Transparência" icon="eye">
+    Rastreabilidade total dos índices e multas aplicados.
+  </Card>  
+  <Card title="Facilidade e Agilidade" icon="wrench">
+    Interface intuitiva com processamento em tempo real.
+  </Card>  
+  <Card title="Relatórios Impressos" icon="file-text">
+    Relatórios formatados com memória de cálculo completa.
+  </Card>  
+  <Card title="Índices Atualizados" icon="zap">
+    Índices obtidos automaticamente via API SGS-BACEN.
+  </Card>
+</CardGroup>
+
+## 📊 Índices Econômicos Atualizados
+
+Os índices utilizados pelo SICAD estão em conformidade com os parâmetros adotados pelo **Tribunal de Justiça do Estado do Rio Grande do Sul**. Os dados são obtidos por meio da **API SGS**, disponibilizada na plataforma de Dados Abertos do **Banco Central do Brasil (BACEN)**.
+
+<AccordionGroup>
+  <Accordion title="Índices Disponíveis" icon="line-chart">
+    - **INPC** (Índice Nacional de Preços ao Consumidor) - IBGE
+    - **IPCA** (Índice Nacional de Preços ao Consumidor Amplo) - IBGE
+    - **IPCA-15** - IBGE
+    - **IGP-M** (Índice Geral de Preços do Mercado) - FGV
+    - **Selic** - Taxa básica de juros do Bacen
+    - **Taxa Legal** - Selic − IPCA-15 (Lei nº 14.905/2024)
+    
+    Os índices são atualizados automaticamente de acordo com a periodicidade de divulgação de cada um.
+  </Accordion>
+
+  <Accordion title="Taxa Legal - Lei nº 14.905/2024" icon="scale">
+    A Taxa Legal, instituída pela Lei nº 14.905/2024, é aplicada em conformidade com as orientações estabelecidas pelo **Tribunal Regional Federal da 4ª Região**, observando a metodologia indicada em suas diretrizes institucionais.
+    
+    A taxa é calculada como: **Selic − IPCA-15**, conforme CMN 5.171/24.
+  </Accordion>
+
+  <Accordion title="Fontes Oficiais" icon="building-columns">
+    - **Banco Central do Brasil (BACEN)**: [www.bcb.gov.br](https://www.bcb.gov.br/)
+    - **API SGS**: [Sistema Gerenciador de Séries Temporais](https://www3.bcb.gov.br/sgspub/localizarseries/localizarSeries.do?method=prepararTelaLocalizarSeries)
+    - **Tribunal de Justiça do RS**: [www.tjrs.jus.br](https://www.tjrs.jus.br/novo/)
+    - **TRF4**: [www.trf4.jus.br](https://www.trf4.jus.br/)
+  </Accordion>
+</AccordionGroup>
+
+## 🏛️ Instituições Parceiras
+
+O SICAD é utilizado pela **Defensoria Pública do Estado do Rio Grande do Sul (DPE-RS)** e segue as diretrizes dos seguintes órgãos:
+
+<CardGroup cols={3}>  <Card title="TJRS" icon="landmark">
+    Tribunal de Justiça do Rio Grande do Sul
+  </Card>  
+  <Card title="TRF4" icon="landmark">
+    Tribunal Regional Federal da 4ª Região
+  </Card>  
+  <Card title="BACEN" icon="landmark">
+    Banco Central do Brasil
+  </Card>
+</CardGroup>
+
+## ⚡ Acesso Rápido
+
+<CardGroup cols={2}>  <Card
+    title="Calcular Pensão"
+    icon="baby"
+    href="/guias/calculadora-pensao"
+  >
+    Acesse diretamente a calculadora de pensão alimentícia
+  </Card>  
+  <Card
+    title="Analisar Juros"
+    icon="trending-up"
+    href="/guias/juros-abusivos"
+  >
+    Verifique se os juros do contrato são abusivos
+  </Card>
+</CardGroup>
 
 ## 📚 Guias e Recursos
 
 Explore todos os recursos do SICAD:
 
-<Columns cols={2}>
-  <Card
+<Columns cols={2}>  <Card
     title="Índices Econômicos"
     icon="line-chart"
     href="/guias/indices-economicos"
   >
     Conheça os índices disponíveis: INPC, IPCA, IGP-M e como utilizá-los.
-  </Card>
+  </Card>  
   <Card
     title="Navegação e Rotas"
     icon="map"
     href="/guias/navegacao"
   >
     Entenda a estrutura de URLs e como navegar pelo sistema.
-  </Card>
+  </Card>  
   <Card
     title="Casos de Uso"
     icon="book"
     href="/guias/casos-de-uso"
   >
     Exemplos práticos de utilização dos serviços.
-  </Card>
+  </Card>  
   <Card
-    title="API de Referência"
-    icon="code"
-    href="/api-reference/introduction"
+    title="Perguntas Frequentes"
+    icon="circle-question"
+    href="/faq"
   >
-    Documentação técnica das APIs utilizadas.
+    Tire suas dúvidas sobre o funcionamento do sistema.
   </Card>
 </Columns>
 
-## ⚡ Acesso Rápido
+## 🛡️ Segurança Jurídica
 
-<CardGroup cols={2}>
-  <Card
-    title="Calcular Pensão"
-    icon="calculator"
-    href="/servicos/pensao"
-  >
-    Acesse diretamente a calculadora de pensão alimentícia
-  </Card>
-  <Card
-    title="Analisar Juros"
-    icon="magnifying-glass-chart"
-    href="/servicos/juros-abusivos"
-  >
-    Verifique se os juros do contrato são abusivos
-  </Card>
-</CardGroup>
+O SICAD foi desenvolvido seguindo rigorosos padrões técnicos e jurídicos:
+
+<Steps>  <Step title="Metodologia Validada">
+    Cálculos baseados em legislação vigente e jurisprudência dos tribunais superiores.
+  </Step>  
+  <Step title="Índices Oficiais">
+    Utilização exclusiva de índices divulgados por órgãos oficiais (IBGE, FGV, BACEN).
+  </Step>  
+  <Step title="Transparência Total">
+    Memória de cálculo detalhada em todos os relatórios gerados.
+  </Step>  
+  <Step title="Conformidade Legal">
+    Atualização constante conforme mudanças na legislação (ex: Taxa Legal - Lei 14.905/24).
+  </Step>
+</Steps>
 
 ## 🏛️ Sobre a Defensoria Pública
 
 O SICAD é uma ferramenta desenvolvida para auxiliar os profissionais da Defensoria Pública no atendimento à população, fornecendo cálculos precisos e fundamentados em índices oficiais do Banco Central do Brasil.
+
+A Defensoria Pública é a instituição responsável pela prestação de assistência jurídica integral e gratuita às pessoas carentes, assegurando o direito de acesso à justiça.
+
+---
+
+<Info>
+  **Versão atual**: Sistema em constante evolução com atualizações automáticas de índices e melhorias contínuas.
+</Info>
