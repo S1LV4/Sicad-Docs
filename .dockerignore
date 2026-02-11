@@ -1,19 +1,58 @@
-# Git
-.git
-.gitignore
+# Mintlify Dockerignore
+# 
+# Arquivos e diretórios a serem ignorados durante o build do Docker
 
-# Documentation files (não necessários no build)
+# Node modules (serão instalados no container)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Diretórios de build e cache
+.mintlify/
+.cache/
+dist/
+build/
+out/
+_site/
+
+# Arquivos de configuração local
+.env
+.env.local
+.env.*.local
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# IDE e editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Docker
+Dockerfile
+docker-compose*.yml
+.dockerignore
+
+# Logs
+logs/
+*.log
+
+# Arquivos temporários
+tmp/
+temp/
+*.tmp
+
+# Documentação de desenvolvimento
 README.md
 COMO-PUBLICAR.md
 RESUMO-PROJETO.md
 SCREENSHOTS-README.md
 WORKFLOW-DOCUMENTACAO.md
-
-# Build artifacts
-_site
-node_modules
-
-# Misc
-.DS_Store
-*.log
 _old.json

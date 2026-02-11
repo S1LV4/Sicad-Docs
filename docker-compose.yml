@@ -1,22 +1,37 @@
+version: '3.8'
+
 services:
   sicad-docs:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: sicad-docs
+    container_name: sicad-docs-mintlify
     ports:
-      - "3000:80"
+      - "3005:3000"  # Porta 3005 no host, 3000 no container
     environment:
-      # Variáveis de ambiente para o container
       - NODE_ENV=production
+    volumes:
+      # Montar volumes para hot-reload durante desenvolvimento (opcional)
+      # Remover em produção se não precisar de edição em tempo real
+      - ./docs.json:/app/docs.json:ro
+      - ./essentials:/app/essentials:ro
+      - ./guias:/app/guias:ro
+      - ./images:/app/images:ro
+      - ./logo:/app/logo:ro
+      - ./favicon.svg:/app/favicon.svg:ro
+      # Permitir edição de MDX files
+      - ./*.mdx:/app/*.mdx:ro
     restart: unless-stopped
     networks:
       - sicad-network
-      - nginx_network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
 
 networks:
   sicad-network:
     driver: bridge
-  nginx_network:
-    external: true
-    name: nginx_network
+    name: sicad-network

@@ -1,34 +1,37 @@
-# SICAD Docs (Mintlify) - Multi-stage Dockerfile
+# Mintlify Documentation Server - Dockerfile
+# 
+# Este Dockerfile configura um servidor Mintlify Dev para servir
+# a documentação do SICAD em produção usando o dev server oficial.
 
-# 1) Build stage
-FROM node:20-alpine AS builder
+FROM node:20-alpine
+
+# Metadados do container
+LABEL maintainer="SICAD Team"
+LABEL description="Mintlify Documentation Server for SICAD"
+LABEL version="1.0"
+
+# Definir diretório de trabalho
 WORKDIR /app
 
-# Install Mintlify CLI globally
-RUN npm install -g mintlify
+# Instalar Mintlify CLI globalmente
+RUN npm install -g mintlify@latest
 
-# Copy documentation files
+# Copiar arquivos de configuração e documentação
 COPY docs.json ./
 COPY *.mdx ./
 COPY essentials ./essentials
 COPY guias ./guias
 COPY images ./images
-COPY favicon.svg ./
 COPY logo ./logo
+COPY favicon.svg ./
 
-# Build static site
-RUN mintlify build
+# Expor porta padrão do Mintlify Dev
+EXPOSE 3000
 
-# 2) Nginx serve stage
-FROM nginx:1.27-alpine AS runner
-WORKDIR /usr/share/nginx/html
+# Health check para verificar se o servidor está respondendo
+HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
+  CMD wget --no-verbose --tries=1 --spider http://localhost:3000/ || exit 1
 
-# Remove default content and copy build
-RUN rm -rf ./*
-COPY --from=builder /app/_site ./
-
-# Provide a basic nginx config suitable for static docs
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-EXPOSE 3000 80
-CMD ["nginx", "-g", "daemon off;"]
+# Comando para iniciar o Mintlify Dev Server
+# --host 0.0.0.0 permite acesso externo ao container
+CMD ["mintlify", "dev", "--host", "0.0.0.0"]
